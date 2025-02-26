@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cstdint": "cpp",
+        "__verbose_abort": "cpp"
+    }
+}
