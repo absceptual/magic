@@ -1,9 +1,18 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <chrono>
+
+using namespace std::chrono;
+
 using status_t = std::uint32_t;
 using hash_t = std::uint32_t;
 using response_t = std::uint8_t*;
+
+using command_t = std::uint32_t;
+
+// User Defined Constants
+constexpr duration U2FHID_TIMEOUT = seconds( 15 );
 
 // U2F Command Constants
 constexpr int U2F_REGISTER      = 0x01;
@@ -11,15 +20,17 @@ constexpr int U2F_AUTHENTICATE  = 0x02;
 constexpr int U2F_VERSION       = 0x3;
 
 // U2FHID Constants
-constexpr int U2FHID_PING           = 0;
-constexpr int U2FHID_ERROR          = 0;
-constexpr int U2FHID_WINK           = 0;
-constexpr int U2FHID_LOCK           = 0;
+constexpr command_t U2FHID_PING           = 0;
+constexpr command_t U2FHID_ERROR          = 1;
+constexpr command_t U2FHID_WINK           = 2;
+constexpr command_t U2FHID_LOCK           = 3;
+constexpr command_t U2FHID_INIT           = 4;
+constexpr command_t U2FHID_MSG            = 5;
 constexpr int MAX_PACKET_SIZE       = 64;
 constexpr int POLL_INTERVAL         = 5; 
 constexpr int CID_BROADCAST         = 0xffffffff;
 constexpr int U2FHID_IF_VERSION     = 2;  
-constexpr int CAPFLAG_WINK          = 0x01;	
+constexpr int CAPABILITY_WINK          = 0x01;	
 constexpr int CAPFLAG_LOCK          =  0x02;	
 constexpr int TYPE_INIT             = 0x80; 
 
